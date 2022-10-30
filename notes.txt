@@ -1,0 +1,7 @@
+for compiling use 'tsc -p tsconfig.json' in terminal instead of ctrl+shift+b or instead of 'tsc*.ts'
+
+!-----BETTER WAY------!
+- initialize tsc and create tsconfig.json by typing the tsc --init command in the terminal
+- if have public and src folders, specify those as rootDir and outDir in the tsconfig.json
+- compile all ts files by typing tsc in the terminal, run node with file name
+- for auto compilation type tsc -w in the terminal 

@@ -20,20 +20,11 @@ export class Sled {
   }
 
   addPresentAndNewBagIfNeeded(presentObject: Present): void {
-    let newBagIsNeeded: boolean;
-
     // try to fit the present into one of the existing bags
-    this.bags.forEach((bag) => {
-      if (bag.addPresent(presentObject)) {
-        newBagIsNeeded = false;
-        // stop trying if the present was placed in one of the existing bags
-        return;
-      } else {
-        newBagIsNeeded = true;
-      }
-    });
-
-    if (newBagIsNeeded) {
+    const presentIsAdded = this.bags.find((bag) =>
+      bag.addPresent(presentObject)
+    );
+    if (!presentIsAdded) {
       const newBag = new Bag(10, BagType.Canvas);
       newBag.addPresent(presentObject);
       this.addBag(newBag);
